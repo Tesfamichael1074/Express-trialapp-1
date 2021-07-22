@@ -10,6 +10,15 @@ const createUser = {
   }),
 };
 
+const createSupperAdmin = {
+  body: Joi.object().keys({
+    email: Joi.string().required().email(),
+    password: Joi.string().required().custom(password),
+    name: Joi.string().required(),
+    role: Joi.string().required().valid('superAdmin'),
+  })
+};
+
 const getUsers = {
   query: Joi.object().keys({
     name: Joi.string(),
@@ -51,4 +60,5 @@ module.exports = {
   getUser,
   updateUser,
   deleteUser,
+  createSupperAdmin
 };
