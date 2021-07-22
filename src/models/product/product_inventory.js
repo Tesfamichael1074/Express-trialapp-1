@@ -15,7 +15,15 @@ const productInventorySchema = mongoose.Schema({
         type: Number,
         required: true,
         default: 0, 
-    }
+    },
+    created_by: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
+    },
+    product:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Product"
+    },
 }, {
     timestamps: true
 },)

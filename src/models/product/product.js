@@ -39,7 +39,31 @@ const productSchema = mongoose.Schema({
         type: Boolean,
         required: false,
         default: false
-    }
+    },
+    created_by: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
+    },
+    supplier: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Supplier"
+    },
+    category: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Category"
+    },
+    products_reviews: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "ProductReview"
+    }],
+    products_discounts: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "ProductDiscount"
+    }],
+    products_inventory: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "ProductInventory"
+    }],
 
 }, {
     timestamps: true

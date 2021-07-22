@@ -22,7 +22,13 @@ const categorySchema = mongoose.Schema({
         type: Boolean,
         required: false,
         trim: true
-    }
+    },
+    products: [ 
+        {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "Product"
+        }
+      ],
 
 },
 {

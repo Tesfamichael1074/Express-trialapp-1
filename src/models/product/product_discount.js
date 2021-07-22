@@ -15,7 +15,17 @@ const productDiscountSchema = mongoose.Schema({
         type: Number,
         required: false,
         default: 0, 
-    }
+    },
+    created_by: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
+    },
+    products: [ 
+        {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "Product"
+        }
+      ],
 }, {
     timestamps: true
 },)

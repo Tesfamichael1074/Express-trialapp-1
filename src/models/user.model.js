@@ -44,6 +44,33 @@ const userSchema = mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    active: {
+      type: Boolean,
+      required: false,
+      dafault: true
+    },
+    products: [ 
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Product"
+      }
+    ],
+    reviews: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "ProductReview"
+    }],
+    products_discounts: [ 
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "ProductDiscount"
+      }
+    ],
+    products_inventorys: [ 
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "ProductInventory"
+      }
+    ],
   },
   {
     timestamps: true,

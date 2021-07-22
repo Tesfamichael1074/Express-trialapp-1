@@ -15,7 +15,15 @@ const productReviewSchema = mongoose.Schema({
         type: Number,
         required: false,
         default: 0, 
-    }
+    },
+    product: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Product"
+    },
+    reviwer: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
+    },
 }, {
     timestamps: true
 },)
