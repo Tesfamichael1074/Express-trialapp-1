@@ -3,6 +3,7 @@ const validator = require('validator');
 const bcrypt = require('bcryptjs');
 const { toJSON, paginate } = require('./plugins');
 const { roles } = require('../config/roles');
+const { string } = require('joi');
 
 const userSchema = mongoose.Schema(
   {
@@ -48,6 +49,30 @@ const userSchema = mongoose.Schema(
       type: Boolean,
       required: false,
       dafault: true
+    },
+    address1: {
+      type: String,
+      required: true,
+    },
+    address2: {
+      type: String,
+      required: true,
+    },
+    phone_number: {
+      type: Number,
+      required: false,
+    },
+    city: {
+      type: String,
+      required: false,
+    },
+    country: {
+      type: String,
+      required: false,
+    },
+    postal_code: {
+      type: String,
+      required: false,
     },
     products: [ 
       {
