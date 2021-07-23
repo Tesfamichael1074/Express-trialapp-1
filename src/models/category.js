@@ -38,8 +38,8 @@ const categorySchema = mongoose.Schema({
 
 
 // add plugin that converts mongoose to json
-userSchema.plugin(toJSON);
-userSchema.plugin(paginate);
+categorySchema.plugin(toJSON);
+categorySchema.plugin(paginate);
 
 
 /**
@@ -47,8 +47,8 @@ userSchema.plugin(paginate);
  * @param {String} name - category name
  * @returns Bolean
  */
-categorySchema.statics.checkCategoryName = async function (name) {
-    const name = await this.findOne({ name });
+categorySchema.statics.checkCategoryName = async function (catname) {
+    const name = await this.findOne({ catname });
     return !!name;
   };
 
