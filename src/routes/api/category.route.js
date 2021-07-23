@@ -10,10 +10,22 @@ const router = express.Router()
 
 router.route('/')
     .post(
-        auth('addCategory'), 
+        auth('Category'), 
         validate(categoryValidation.validateCategory),
         categoryController.createCategry
         )
+    .get(
+        auth('Category'), 
+        validate(categoryValidation.getCategory),
+        categoryController.getCategry
+    )
+
+router.route('/:id')
+    .put(
+        auth('Category'), 
+        validate(categoryValidation.validateCategory),
+        categoryController.updateCategry
+    )
 
 
 module.exports = router
